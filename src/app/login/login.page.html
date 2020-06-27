@@ -1,0 +1,28 @@
+<ion-content padding>
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-6 sm-offset-3">
+      <ion-list no-lines>
+        <ion-item class="mt-3">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
+        <ion-item class="mt-3">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div padding>
+        <!-- <button ion-button full (click)="login()">Log In</button> -->
+        <ion-button color="primary" expand="full" (click)="login()">Log In</ion-button>
+      </div>
+
+      <div padding class="text-center">
+        <p>Don't have an account? <br>
+          <span class="link" (click)="goToSignup()">Create one</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

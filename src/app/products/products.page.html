@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="full" color="primary" *ngIf="isAdmin" (click)="openAddProduct()">Add Product</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let product of products">
+        <ion-card (click)="openProduct(product)">
+          <img src="{{host}}/{{product.productImage}}" />
+          <h6 text-center>{{product.productName}}</h6>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div text-center>
+    <div class="profile_items" *ngIf="profileInfo && !isEditClicked">
+      <div class="profile_image">
+        <img src="assets/images/avatar.jpg">
+      </div>
+      <h3>{{ profileInfo.user_firstname }} {{ profileInfo.user_lastname }}</h3>
+
+      <div class="contact_info">
+        <ion-row>
+          <ion-col>
+            <!-- <ion-icon name="email"></ion-icon> -->
+            <p><strong>Email</strong></p>
+            <p><i>{{ profileInfo.user_email }}</i></p>
+          </ion-col>
+
+          <ion-col>
+            <!-- <ion-icon name="phone"></ion-icon> -->
+            <p><strong>Phone</strong></p>
+            <p><i>{{ profileInfo.user_phonenumber }}</i></p>
+            </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" class="clear" (click)="editProfile()">
+      Edit Profile
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+  

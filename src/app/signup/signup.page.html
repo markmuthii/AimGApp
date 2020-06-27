@@ -1,0 +1,83 @@
+<ion-content>
+
+  <ion-slides pager="true">
+    <ion-slide class="step-one">
+      <ion-img src="assets/images/placeholder-image.png"></ion-img>
+      <h2>Are You an Aim Global Member?</h2>
+      <ion-select [(ngModel)]="isMember" (ionChange)="memberSelectionChanged()">
+        <ion-select-option value="true">Yes</ion-select-option>
+        <ion-select-option value="false">No</ion-select-option>
+      </ion-select>
+
+      <div *ngIf="isMember">
+        <ion-list no-lines>
+          <ion-item class="mt-3">
+            <ion-label position="floating">Aim Global Account Id</ion-label>
+            <ion-input type="text" [(ngModel)]="aimGlobalId"></ion-input>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-slide>
+
+    <ion-slide class="step-two">
+      <div class="row justify-content-sm-center">
+        <div class="col-sm-6 sm-offset-3">
+          <ion-list no-lines>
+            <ion-item class="mt-3">
+              <ion-label position="floating">First Name</ion-label>
+              <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+            </ion-item>
+    
+            <ion-item class="mt-3">
+              <ion-label position="floating">Last Name</ion-label>
+              <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+            </ion-item>
+    
+            <ion-item class="mt-3">
+              <ion-label position="floating">Username</ion-label>
+              <ion-input type="text" [(ngModel)]="username"></ion-input>
+            </ion-item>
+
+            <ion-item class="mt-3">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" [(ngModel)]="email"></ion-input>
+            </ion-item>
+    
+            <ion-item class="mt-3">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+    
+            <ion-item class="mt-3">
+              <ion-label position="floating">Phone Number</ion-label>
+              <ion-input type="text" [(ngModel)]="phonenumber"></ion-input>
+            </ion-item>
+
+            <ion-item class="mt-3">
+              <ion-label position="floating">Country</ion-label>
+              <ion-input type="text" [(ngModel)]="country"></ion-input>
+            </ion-item>
+
+            <ion-item class="mt-3">
+              <ion-label position="floating">City</ion-label>
+              <ion-input type="text" [(ngModel)]="city"></ion-input>
+            </ion-item>
+          </ion-list>
+    
+          <div padding>
+            <!-- <button ion-button full (click)="login()">Log In</button> -->
+            <ion-button color="primary" expand="full" (click)="signup()">Sign Up</ion-button>
+          </div>
+    
+          <div padding class="text-center">
+            <p>Already have an account? <br>
+              <span class="link" (click)="goToLogin()">Log in.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+  
+</ion-content>

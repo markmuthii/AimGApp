@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Leads</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="lead_search_content">
+  <div padding class="lead_search_not_found" text-center *ngIf="!leads || leads == ''">
+    <img src="assets/images/not-found.png">
+    <p>You do not have any leads as of yet.</p>
+  </div>
+  <ion-list *ngIf="leads">
+    <ion-item *ngFor="let lead of leads">
+      <ion-avatar slot="start">
+        <img src="assets/images/avatar.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>{{ lead.firstName }} {{ lead.lastName }}</strong></h2>
+        <h3><i>{{ lead.country }}</i></h3>
+      </ion-label>
+      <ion-button slot="end" color="primary" (click)="viewLeadProfile(lead)">Profile</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

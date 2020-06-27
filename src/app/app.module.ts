@@ -1,6 +1,9 @@
+import { ChatModalPageModule } from './chat-modal/chat-modal.module';
+import { ProductsSinglePageModule } from './products-single/products-single.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,13 +12,28 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { MemberProfilePageModule } from './member-profile/member-profile.module';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+
+const config: SocketIoConfig = { url: 'https://aimgapp.herokuapp.com/', options: {
+    transport : ['websocket']
+  }
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ProductsSinglePageModule,
+    MemberProfilePageModule,
+    ChatModalPageModule,
+    SocketIoModule.forRoot(config),
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,

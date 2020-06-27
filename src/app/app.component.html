@@ -4,6 +4,13 @@
       <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
+          <ion-menu-toggle slot="end">
+            <ion-buttons>
+              <ion-button>
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-menu-toggle>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -16,8 +23,19 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" [routerLink]="" (click)="logout()">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>
+                Logout
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
+      <ion-footer>
+        <p style="font-size: .7em; margin-left: 10px;"><strong>AimGApp</strong> ©{{ year }} <a href="https://mark.muthii.me">Mark Muthii</a></p>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>

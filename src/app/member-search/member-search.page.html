@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Members</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="member_search_content">
+  <ion-searchbar clear-icon="undefined" placeholder="Search by country..." animated [(ngModel)]="country" (ionChange)="searchChanged($event)"></ion-searchbar>
+  <div padding class="member_search_not_found" text-center *ngIf="!members || members == ''">
+    <img src="assets/images/not-found.png">
+    <p *ngIf="isKeyEntered">We cannot find members in the specified country.</p>
+    <p *ngIf="!isKeyEntered">Enter a country above to search for members.</p>
+  </div>
+  <ion-list *ngIf="members">
+    <ion-item *ngFor="let member of members">
+      <ion-avatar slot="start">
+        <img src="assets/images/avatar.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>{{ member.firstName }} {{ member.lastName }}</strong></h2>
+        <h3><i>{{ member.country }}</i></h3>
+      </ion-label>
+      <ion-button slot="end" color="primary" (click)="viewMemberProfile(member)">Profile</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

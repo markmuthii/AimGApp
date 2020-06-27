@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{person.firstName}} {{person.lastName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div text-center>
+    <div class="profile_items">
+      <div class="profile_image">
+        <img src="assets/images/avatar.jpg">
+      </div>
+      <h3>{{ person.firstName }} {{ person.lastName }}</h3>
+
+      <div class="contact_info">
+        <ion-row>
+          <ion-col>
+            <!-- <ion-icon name="email"></ion-icon> -->
+            <p><strong>Email</strong></p>
+            <p><i>{{ person.email }}</i></p>
+          </ion-col>
+
+          <ion-col>
+            <!-- <ion-icon name="phone"></ion-icon> -->
+            <p><strong>Phone</strong></p>
+            <p><i>{{ person.phone }}</i></p>
+            </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button *ngIf="!person.isLead && !person.isTeamMember" expand="full" class="clear" (click)="requestSponsorship()">
+      Request Sponsorship
+    </ion-button>
+    <ion-button *ngIf="person.isLead && person.status === 2" expand="full" class="clear" (click)="acceptLead(person)">
+      Accept Lead
+    </ion-button>
+    <ion-button *ngIf="person.isLead && person.status === 1" expand="full" class="clear" (click)="confirmLead(person)">
+      Confirm Lead
+    </ion-button>
+    <ion-button *ngIf="person.isTeamMember" expand="full" class="clear" (click)="chatWithTeamMember(person)">
+      Chat
+    </ion-button>
+  </ion-toolbar>
+  </ion-footer>
+  

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Team Members</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="team_search_content">
+  <div padding class="team_search_not_found" text-center *ngIf="!teams || teams == ''">
+    <img src="assets/images/not-found.png">
+    <p>You do not have any teams as of yet.</p>
+  </div>
+  <ion-list *ngIf="teams">
+    <ion-item *ngFor="let team of teams">
+      <ion-avatar slot="start">
+        <img src="assets/images/avatar.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>{{ team.firstName }} {{ team.lastName }}</strong></h2>
+        <h3><i>{{ team.country }}</i></h3>
+      </ion-label>
+      <ion-button slot="end" color="primary" (click)="viewTeamMemberProfile(team)">Profile</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
